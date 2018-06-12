@@ -36,6 +36,7 @@ public class HdfsUtil1 {
 	 * 测试方法入口
 	 */
 	public static void main(String[] args) throws IOException {
+		System.setProperty("HADOOP_USER_NAME","hadoop");
 		JobConf conf = config();
 		HdfsUtil1 hdfs = new HdfsUtil1(conf);
 		/**
@@ -45,9 +46,12 @@ public class HdfsUtil1 {
 		/**
 		 * 测试遍历文件目录
 		 */
-		hdfs.ls("/");
-
+		hdfs.mkdirs("/tmp");
+		hdfs.ls("/tmp");
 		hdfs.mkdirs("/tmp/0612");
+		hdfs.createFile("/tmp/0612/ceshi.txt","wuzhentao is testing");
+//		hdfs.rmr("/tmp/0612");
+//		hdfs.ls("/tmp");
 		/**
 		 * 测试重命名文件
 		 */
