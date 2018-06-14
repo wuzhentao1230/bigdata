@@ -19,11 +19,11 @@ public class WordCount {
     public static void main(String[] args) throws Exception {
 
         Configuration conf = new Configuration();
-//        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
-//        if (otherArgs.length != 2) {
-//            System.err.println("Usage: wordcount <in> <out>");
-//            System.exit(2);
-//        }
+        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+        if (otherArgs.length != 2) {
+            System.err.println("Usage: wordcount <in> <out>");
+            System.exit(2);
+        }
 
         Job job = Job.getInstance(conf);
         job.setJobName("WordCount");
@@ -36,8 +36,8 @@ public class WordCount {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
-        FileInputFormat.addInputPath(job, new Path("hdfs://wztsnn.xyz:9000/tmp/0612/nihao.txt"));
-        FileOutputFormat.setOutputPath(job, new Path("hdfs://wztsnn.xyz:9000/tmp/0613/"));
+        FileInputFormat.addInputPath(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
