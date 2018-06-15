@@ -49,6 +49,7 @@ public class HdfsUtil1 {
 		hdfs.mkdirs("/tmp");
 		hdfs.ls("/tmp");
 		hdfs.mkdirs("/tmp/0612");
+		hdfs.mkdirs("/tmp/0612");
 		hdfs.createFile("/tmp/0612/ceshi.txt","wuzhentao is testing");
 //		hdfs.rmr("/tmp/0612");
 //		hdfs.ls("/tmp");
@@ -65,9 +66,9 @@ public class HdfsUtil1 {
 	public static JobConf config() {
 		JobConf conf = new JobConf();
 		conf.setJobName("HdfsUtil1");
-//		conf.addResource("classpath:/hadoop/core-site.xml");
-//		conf.addResource("classpath:/hadoop/hdfs-site.xml");
-//		conf.addResource("classpath:/hadoop/mapred-site.xml");
+		conf.addResource("core-site.xml");
+		conf.addResource("hdfs-site.xml");
+		conf.addResource("mapred-site.xml");
 		return conf;
 	}
 	/**
@@ -139,11 +140,12 @@ public class HdfsUtil1 {
 	public void createFile(String file, String content) throws IOException {
 		FileSystem fs = FileSystem.get(URI.create(hdfsPath), conf);
 		byte[] buff = content.getBytes();
-		FSDataOutputStream os = null;
+			FSDataOutputStream os = null;
 		try {
 			os = fs.create(new Path(file));
 			os.write(buff, 0, buff.length);
 			System.out.println("Create: " + file);
+			os.flush();
 		} finally {
 			if (os != null)
 				os.close();
