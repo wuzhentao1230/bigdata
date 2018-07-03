@@ -35,8 +35,26 @@ import org.apache.hadoop.mapreduce.lib.aggregate.ValueAggregatorJob;
  * 
  * To run: bin/hadoop jar hadoop-*-examples.jar aggregatewordcount 
  * <i>in-dir</i> <i>out-dir</i> <i>numOfReducers</i> textinputformat
- * 
+ *
+ *
+ 这个是hadoop的map/reduce的例子，是对例子WordCount利用系统已经实现的map/reduce类进行简化。
+ 系统已经实现的ValueAggregatorBaseDescriptor
+ 和ValueAggregatorJob已经实现各种数据类型的求和最大值，最小值的算法。类型如下：
+ UniqValueCount
+ LongValueSum
+ DoubleValueSum
+ ValueHistogram
+ LongValueMax
+ LongValueMin
+ StringValueMax
+ StringValueMin
+ 具体请看相关的源代码。
+ 这个job的执行必须用-jarlibs执行，不然会报configured错误。
+ 执行命令如下：
+ hadoop jar hadoop-example.jar -libjars hadoop-example.jar shakepoems.text out_aggregate_his 3 textinputformat
+
  */
+
 public class AggregateWordCount {
 
   public static class WordCountPlugInClass extends
