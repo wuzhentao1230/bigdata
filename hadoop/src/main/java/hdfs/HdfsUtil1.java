@@ -16,7 +16,7 @@ import java.net.URI;
  */
 public class HdfsUtil1 {
 	//修改成自己的HDFS主机地址
-	private static final String HDFS = "hdfs://wztsnn.xyz:9000/";
+	private static final String HDFS = "hdfs://192.168.21.20:9000/";
 	/**
 	 * 两个构造器
 	 * @param conf
@@ -36,7 +36,7 @@ public class HdfsUtil1 {
 	 * 测试方法入口
 	 */
 	public static void main(String[] args) throws IOException {
-		System.setProperty("HADOOP_USER_NAME","hadoop");
+		System.setProperty("HADOOP_USER_NAME","hadoop2");
 		JobConf conf = config();
 		HdfsUtil1 hdfs = new HdfsUtil1(conf);
 		/**
@@ -46,11 +46,11 @@ public class HdfsUtil1 {
 		/**
 		 * 测试遍历文件目录
 		 */
-		hdfs.mkdirs("/tmp");
-		hdfs.ls("/tmp");
-		hdfs.mkdirs("/tmp/0612");
-		hdfs.mkdirs("/tmp/0612");
-		hdfs.createFile("/tmp/0612/ceshi.txt","wuzhentao is testing");
+		hdfs.mkdirs("/test");
+		hdfs.ls("/test");
+		hdfs.mkdirs("/test/0612");
+		hdfs.mkdirs("/test/0612");
+		hdfs.createFile("/test/0612/ceshi.txt","wuzhentao is testing");
 //		hdfs.rmr("/tmp/0612");
 //		hdfs.ls("/tmp");
 		/**

@@ -1,4 +1,4 @@
-﻿package com.hadoop;
+package com.hadoop;
 
 import java.io.IOException;
 import java.util.Calendar;

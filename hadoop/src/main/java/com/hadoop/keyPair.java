@@ -1,4 +1,4 @@
-﻿package com.hadoop;
+package com.hadoop;
 
 import java.io.DataInput;
 import java.io.DataOutput;
