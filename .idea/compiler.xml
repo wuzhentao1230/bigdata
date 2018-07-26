@@ -14,10 +14,10 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bigdata" target="1.5" />
-      <module name="hadoop" target="1.5" />
+      <module name="hadoop" target="1.7" />
       <module name="hbase" target="1.5" />
       <module name="hive" target="1.5" />
-      <module name="spark" target="1.5" />
+      <module name="spark" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

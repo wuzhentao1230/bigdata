@@ -42,7 +42,7 @@ public class HdfsUtil1 {
 		/**
 		 * 测试拷贝文件
 		 */
-//		hdfs.copyFile("datafile/item.csv", "/tmp/new");
+		hdfs.copyFile("D:\\data\\a.txt", "hdfs://192.168.21.20:9000/tmp/cecece");
 		/**
 		 * 测试遍历文件目录
 		 */
