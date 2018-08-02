@@ -19,6 +19,6 @@ public class SparkUtil {
             .builder()
             .config(sparkConf)
             .getOrCreate();
-    //这个普遍进行Rdd操作的
+    //这个普遍进行Rdd操作的context
     public static JavaSparkContext context = new JavaSparkContext(sparkSession.sparkContext());
 }

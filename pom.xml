@@ -13,6 +13,7 @@
         <module>hbase</module>
         <module>spark</module>
         <module>hive</module>
+        <module>sparkscala</module>
     </modules>
 
     <dependencies>
