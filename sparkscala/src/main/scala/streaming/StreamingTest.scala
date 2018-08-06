@@ -20,7 +20,7 @@ object StreamingTest {
   def main(args: Array[String]): Unit = {
     //获取sparkstreaming
 
-    val conf = new SparkConf().setAppName("NetworkWordCount")
+    val conf = new SparkConf().setMaster("local[2]").setAppName("NetworkWordCount")
 
     val ssc = new StreamingContext(conf, Seconds(10))
 
